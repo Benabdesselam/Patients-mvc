@@ -46,4 +46,9 @@ public class PatientController {
         return patientRepository.findAll();
   }
 
+@GetMapping("/formPateints")
+  public String formPateint(Model model){
+    model.addAttribute("patient",new Patient());
+    return "formPatients";
+}
 }
