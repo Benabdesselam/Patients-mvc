@@ -2,6 +2,7 @@ package com.benabdesselam.patientsmvc;
 
 import com.benabdesselam.patientsmvc.entities.Patient;
 import com.benabdesselam.patientsmvc.repositories.PatientRepository;
+import com.benabdesselam.patientsmvc.security.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,7 @@ public class PatientsMvcApplication {
     }
 
      //@Bean
+
     CommandLineRunner commandLineRunner(PatientRepository patientRepository){
       return args -> {
         patientRepository.save(new Patient(null,"benabdesselam",new Date(),true,550));
@@ -31,4 +33,28 @@ public class PatientsMvcApplication {
           );
       };
     };
+
+@Bean
+CommandLineRunner saveUsers(SecurityService securityService){
+    return args -> {
+     securityService.saveNewUser("mohamed","1234","1234");
+     securityService.saveNewUser("fox","1234","1234");
+     securityService.saveNewUser("reda","1234","1234");
+
+     securityService.saveNewRole("USER","");
+     securityService.saveNewRole("ADMIN","");
+
+     securityService.addRoleToUser("mohamed","USER");
+        securityService.addRoleToUser("fox","ADMIN");
+        securityService.addRoleToUser("reda","USER");
+
+
+    };
+
+}
+
+
+
+
+
 }
