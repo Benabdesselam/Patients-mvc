@@ -8,12 +8,13 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class AppRole {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long roleID;
     @Column(unique = true)
     private String roleName;
     private String description;
+
 }

@@ -1,4 +1,4 @@
-package com.benabdesselam.patientsmvc.entities;
+package ma.mihrdi.patientsmvc.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +10,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
+
 
 
 @Data @AllArgsConstructor @NoArgsConstructor
