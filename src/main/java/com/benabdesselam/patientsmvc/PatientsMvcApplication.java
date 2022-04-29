@@ -1,6 +1,8 @@
 package com.benabdesselam.patientsmvc;
 
 import com.benabdesselam.patientsmvc.entities.Patient;
+import com.benabdesselam.patientsmvc.entities.RendezVous;
+import com.benabdesselam.patientsmvc.repositories.MedecinRepository;
 import com.benabdesselam.patientsmvc.repositories.PatientRepository;
 import com.benabdesselam.patientsmvc.security.service.SecurityService;
 import org.springframework.boot.CommandLineRunner;
@@ -21,12 +23,13 @@ public class PatientsMvcApplication {
 
     // @Bean
 
-    CommandLineRunner commandLineRunner(PatientRepository patientRepository){
+    CommandLineRunner commandLineRunner(PatientRepository patientRepository, MedecinRepository medecinRepository){
       return args -> {
         patientRepository.save(new Patient(null,"benabdesselam",new Date(),true,550));
          patientRepository.save(new Patient(null,"karim",new Date(),true,300));
           patientRepository.save(new Patient(null,"ismail",new Date(),true,400));
           patientRepository.save(new Patient(null,"reda",new Date(),true,800));
+
           patientRepository.findAll().forEach(patient ->{
                       System.out.println(patient.getNom()+"--------");
               System.out.println("===========================");

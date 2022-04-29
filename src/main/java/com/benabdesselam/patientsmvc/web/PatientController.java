@@ -1,6 +1,7 @@
 package com.benabdesselam.patientsmvc.web;
 
 import com.benabdesselam.patientsmvc.entities.Patient;
+import com.benabdesselam.patientsmvc.repositories.MedecinRepository;
 import com.benabdesselam.patientsmvc.repositories.PatientRepository;
 import lombok.AllArgsConstructor;
 
@@ -45,6 +46,12 @@ public class PatientController {
     public String home(){
         return "redirect:/user/index";
     }
+
+    @GetMapping(path = "/user/about")
+    public String about(){
+        return "about";
+    }
+
     @GetMapping(path = "/user/patients")
     @ResponseBody
     public  List<Patient> listPatients(){
