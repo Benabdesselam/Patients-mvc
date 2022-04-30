@@ -13,7 +13,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class Consultation {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private Date dateConsultation;
     private  String rapport;

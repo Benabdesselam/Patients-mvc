@@ -43,7 +43,7 @@ public class MedecinController {
        return "medecins";
   }
   @GetMapping(path = "/admin/deleteMedecin")
-  public String delete(Long id , String keyword , int page){
+  public String deleteMedecin(Long id , String keyword , int page){
     medecinRepository.deleteById(id);
     return "redirect:/user/talaba?page="+page+"&keyword="+keyword;
   }
@@ -55,7 +55,7 @@ public class MedecinController {
 
 }
   @PostMapping(path = "/admin/saveMedecin")
-  public String save(Model model , @Valid Medecin medecin, BindingResult bindingResult,
+  public String saveMedecin(Model model , @Valid Medecin medecin, BindingResult bindingResult,
                      @RequestParam(defaultValue = "0") int page,
                      @RequestParam(defaultValue = "") String keyword){
     if (bindingResult.hasErrors()) return "formMedecin";
@@ -63,7 +63,7 @@ public class MedecinController {
     return "redirect:/user/talaba?page"+page+"keyword"+keyword;
   }
   @GetMapping(path = "/admin/editMedecin")
-  public String edit(Model model,Long id ,String keyword , int page){
+  public String editMedecin(Model model,Long id ,String keyword , int page){
     Medecin medecin = medecinRepository.findById(id).orElse(null);
     if (medecin==null) throw new RuntimeException("Medecin introuvable");
     model.addAttribute("medecin",medecin);
